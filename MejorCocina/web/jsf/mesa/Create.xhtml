@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.CreateMesaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMesaLabel_numMaxComensales}" for="numMaxComensales" />
+                    <h:inputText id="numMaxComensales" value="#{mesaController.selected.numMaxComensales}" title="#{bundle.CreateMesaTitle_numMaxComensales}" />
+                    <h:outputLabel value="#{bundle.CreateMesaLabel_ubicacion}" for="ubicacion" />
+                    <h:inputText id="ubicacion" value="#{mesaController.selected.ubicacion}" title="#{bundle.CreateMesaTitle_ubicacion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mesaController.create}" value="#{bundle.CreateMesaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{mesaController.prepareList}" value="#{bundle.CreateMesaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMesaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

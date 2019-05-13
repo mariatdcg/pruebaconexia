@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.CreateFacturaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>     
+                <p:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_cliente}" for="cliente" />
+                    <h:selectOneMenu id="cliente" value="#{facturaController.selected.cliente}" title="#{bundle.CreateFacturaTitle_cliente}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_cliente}">
+                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                       var="itemCliente" itemValue="#{itemCliente.value}" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_camarero}" for="camarero" />
+                    <h:selectOneMenu id="camarero" value="#{facturaController.selected.camarero}" title="#{bundle.CreateFacturaTitle_camarero}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_camarero}">
+                        <f:selectItems value="#{camareroController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_mesa}" for="mesa" />
+                    <h:selectOneMenu id="mesa" value="#{facturaController.selected.mesa}" title="#{bundle.CreateFacturaTitle_mesa}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_mesa}">
+                        <f:selectItems value="#{mesaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </p:panelGrid>
+                <br />
+                <h:commandLink action="#{facturaController.create}" value="#{bundle.CreateFacturaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{facturaController.prepareList}" value="#{bundle.CreateFacturaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateFacturaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

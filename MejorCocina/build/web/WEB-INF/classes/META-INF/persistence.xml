@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="MejorCocinaPU" transaction-type="JTA">
+    <jta-data-source>java:app/conexionDS</jta-data-source>
+    <class>com.conexia.beans.Camarero</class>
+    <class>com.conexia.beans.Cliente</class>
+    <class>com.conexia.beans.Cocinero</class>
+    <class>com.conexia.beans.DetalleFactura</class>
+    <class>com.conexia.beans.Factura</class>
+    <class>com.conexia.beans.Mesa</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>

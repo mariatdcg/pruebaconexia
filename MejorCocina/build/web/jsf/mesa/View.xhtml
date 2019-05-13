@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ViewMesaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMesaLabel_idMesa}"/>
+                    <h:outputText value="#{mesaController.selected.idMesa}" title="#{bundle.ViewMesaTitle_idMesa}"/>
+                    <h:outputText value="#{bundle.ViewMesaLabel_numMaxComensales}"/>
+                    <h:outputText value="#{mesaController.selected.numMaxComensales}" title="#{bundle.ViewMesaTitle_numMaxComensales}"/>
+                    <h:outputText value="#{bundle.ViewMesaLabel_ubicacion}"/>
+                    <h:outputText value="#{mesaController.selected.ubicacion}" title="#{bundle.ViewMesaTitle_ubicacion}"/>
+                </h:panelGrid>
+                <table>
+                <tr>
+                    <td>
+                        <h:commandLink action="#{mesaController.destroyAndView}" value="#{bundle.ViewMesaDestroyLink}"/>
+                    </td>
+                    <td>
+                        <h:link outcome="Edit" value="#{bundle.ViewMesaEditLink}"/>
+                    </td>
+                    <td>
+                   <h:commandLink action="#{mesaController.prepareCreate}" value="#{bundle.ViewMesaCreateLink}" />
+                    </td>
+                </tr>
+                  </table>
+                <br />
+                <h:commandLink action="#{mesaController.prepareList}" value="#{bundle.ViewMesaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMesaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

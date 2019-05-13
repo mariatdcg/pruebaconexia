@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.EditClienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                     <h:outputLabel value="#{bundle.EditClienteLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{clienteController.selected.nombre}" title="#{bundle.EditClienteTitle_nombre}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditClienteLabel_apellido1}" for="apellido1" />
+                    <h:inputText id="apellido1" value="#{clienteController.selected.apellido1}" title="#{bundle.EditClienteTitle_apellido1}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_apellido2}" for="apellido2" />
+                    <h:inputText id="apellido2" value="#{clienteController.selected.apellido2}" title="#{bundle.EditClienteTitle_apellido2}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{clienteController.selected.observaciones}" title="#{bundle.EditClienteTitle_observaciones}" />
+                </h:panelGrid>
+                <h:commandLink action="#{clienteController.update}" value="#{bundle.EditClienteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditClienteViewLink}"/>
+                <br />
+                <h:commandLink action="#{clienteController.prepareList}" value="#{bundle.EditClienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditClienteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:body>
+        <ui:composition template="/Template.xhtml">
+            <ui:define name="top">Bienvenido a La Mejor Cocina</ui:define>
+            <ui:define name="content">
+                <br />       
+                <h:link outcome="/jsf/camarero/List" value="Listado de Camareros"/>
+                <br /><br />
+                <h:link outcome="/jsf/cliente/List" value="Listado de Clientes"/>
+                <br /><br />
+                <h:link outcome="/jsf/cocinero/List" value="Listado de Cocineros"/>
+                <br /><br />
+                <h:link outcome="/jsf/detalleFactura/List" value="Listado de Detalles de Factura"/>
+                <br /><br />
+                <h:link outcome="/jsf/factura/List" value="Listado de facturas"/>
+                <br /><br />
+                <h:link outcome="/jsf/mesa/List" value="Listado de Mesas"/>
+
+            </ui:define>
+
+        </ui:composition>
+  
+    </h:body>
+
+
+
+</html>
+

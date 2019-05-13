@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.CreateCamareroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                   
+                    <h:outputLabel value="#{bundle.CreateCamareroLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{camareroController.selected.nombre}" title="#{bundle.CreateCamareroTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCamareroRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateCamareroLabel_apellido1}" for="apellido1" />
+                    <h:inputText id="apellido1" value="#{camareroController.selected.apellido1}" title="#{bundle.CreateCamareroTitle_apellido1}" />
+                    <h:outputLabel value="#{bundle.CreateCamareroLabel_apellido2}" for="apellido2" />
+                    <h:inputText id="apellido2" value="#{camareroController.selected.apellido2}" title="#{bundle.CreateCamareroTitle_apellido2}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{camareroController.create}" value="#{bundle.CreateCamareroSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{camareroController.prepareList}" value="#{bundle.CreateCamareroShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCamareroIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

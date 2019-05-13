@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/NetBeans/MejorCocina/src/java/com/conexia/beans/DetallefacturaPK.java</file>
+            <file>file:/E:/NetBeans/MejorCocina/src/java/com/conexia/beans/DetalleFactura.java</file>
+            <file>file:/E:/NetBeans/MejorCocina/web/jsf/detalleFactura/Create.xhtml</file>
+            <file>file:/E:/NetBeans/MejorCocina/src/java/com/conexia/jsf/controller/FacturaController.java</file>
+            <file>file:/E:/NetBeans/MejorCocina/src/java/com/conexia/jsf/beans/DetalleFacturaFacade.java</file>
+            <file>file:/E:/NetBeans/MejorCocina/web/jsf/factura/List.xhtml</file>
+            <file>file:/E:/NetBeans/MejorCocina/src/java/com/conexia/jsf/controller/DetalleFacturaController.java</file>
+            <file>file:/E:/NetBeans/MejorCocina/web/jsf/factura/FacturaDetalle.xhtml</file>
+        </group>
+    </open-files>
+</project-private>

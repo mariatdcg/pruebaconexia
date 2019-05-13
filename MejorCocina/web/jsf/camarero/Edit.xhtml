@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.EditCamareroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                     <h:outputLabel value="#{bundle.EditCamareroLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{camareroController.selected.nombre}" title="#{bundle.EditCamareroTitle_nombre}" required="true" requiredMessage="#{bundle.EditCamareroRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditCamareroLabel_apellido1}" for="apellido1" />
+                    <h:inputText id="apellido1" value="#{camareroController.selected.apellido1}" title="#{bundle.EditCamareroTitle_apellido1}" />
+                    <h:outputLabel value="#{bundle.EditCamareroLabel_apellido2}" for="apellido2" />
+                    <h:inputText id="apellido2" value="#{camareroController.selected.apellido2}" title="#{bundle.EditCamareroTitle_apellido2}" />
+                </h:panelGrid>
+                <h:commandLink action="#{camareroController.update}" value="#{bundle.EditCamareroSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCamareroViewLink}"/>
+                <br />
+                <h:commandLink action="#{camareroController.prepareList}" value="#{bundle.EditCamareroShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCamareroIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

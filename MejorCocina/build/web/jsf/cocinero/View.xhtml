@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ViewCocineroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCocineroLabel_idCocinero}"/>
+                    <h:outputText value="#{cocineroController.selected.idCocinero}" title="#{bundle.ViewCocineroTitle_idCocinero}"/>
+                    <h:outputText value="#{bundle.ViewCocineroLabel_nombre}"/>
+                    <h:outputText value="#{cocineroController.selected.nombre}" title="#{bundle.ViewCocineroTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewCocineroLabel_apellido1}"/>
+                    <h:outputText value="#{cocineroController.selected.apellido1}" title="#{bundle.ViewCocineroTitle_apellido1}"/>
+                    <h:outputText value="#{bundle.ViewCocineroLabel_apellido2}"/>
+                    <h:outputText value="#{cocineroController.selected.apellido2}" title="#{bundle.ViewCocineroTitle_apellido2}"/>
+                   </h:panelGrid>
+                <br /> 
+                <table>
+                <tr>
+                    <td>
+                        <h:commandLink action="#{cocineroController.destroyAndView}" value="#{bundle.ViewCocineroDestroyLink}"/>
+                    </td>
+                    <td>
+                        <h:link outcome="Edit" value="#{bundle.ViewCocineroEditLink}"/>
+                    </td>
+                    <td>
+                     <h:commandLink action="#{cocineroController.prepareCreate}" value="#{bundle.ViewCocineroCreateLink}" />
+                    </td>
+                </tr>
+                  </table>
+                    <br />
+                <br /> 
+                <h:commandLink action="#{cocineroController.prepareList}" value="#{bundle.ViewCocineroShowAllLink}"/>
+                             
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCocineroIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

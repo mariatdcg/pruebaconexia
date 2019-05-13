@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="jsf/detalleFactura/Create.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="jsf/camarero/Edit.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="jsf/cocinero/Create.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="jsf/factura/Edit.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="jsf/camarero/View.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="jsf/cliente/List.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="jsf/factura/Create.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="jsf/factura/FacturaDetalle.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="jsf/factura/View.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="jsf/camarero/List.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="jsf/camarero/Create.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="900" y="450" zoom="false"/>
+        <Node id="jsf/cocinero/Edit.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="jsf/detalleFactura/View.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="jsf/cocinero/View.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="jsf/mesa/Create.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="jsf/factura/List.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="jsf/mesa/List.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="jsf/cliente/Create.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="Template.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="jsf/cliente/View.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="jsf/mesa/View.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="jsf/mesa/Edit.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="jsf/cliente/Edit.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="jsf/detalleFactura/Edit.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="jsf/cocinero/List.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="jsf/detalleFactura/List.xhtml" x="1150" y="450" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

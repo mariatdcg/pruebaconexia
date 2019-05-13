@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+ <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <h:graphicImage url="images/logo.png" width="200" height="100" alt="logo"/>    
+    </h:head>
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.CreateFacturaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>     
+                <p:panelGrid columns="2">
+                   
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_cliente}" for="cliente" />
+                    <h:selectOneMenu id="cliente" value="#{facturaController.selected.cliente}" title="#{bundle.CreateFacturaTitle_cliente}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_cliente}">
+                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                       var="itemCliente" itemValue="#{itemCliente.value}" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_camarero}" for="camarero" />
+                    <h:selectOneMenu id="camarero" value="#{facturaController.selected.camarero}" title="#{bundle.CreateFacturaTitle_camarero}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_camarero}">
+                        <f:selectItems value="#{camareroController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaLabel_mesa}" for="mesa" />
+                    <h:selectOneMenu id="mesa" value="#{facturaController.selected.mesa}" title="#{bundle.CreateFacturaTitle_mesa}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_mesa}">
+                        <f:selectItems value="#{mesaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </p:panelGrid>
+                <br/>
+                <h:commandLink action="#{facturaController.createComplete}" value="#{bundle.CreateFacturaSaveLink}" />
+            </h:form>
+            <h:form>
+                 
+                 <h:panelGrid columns="2" >
+                   <h:outputLabel value="#{bundle.EditDetalleFacturaLabel_factura}" for="factura" />
+                   <h:selectOneMenu id="factura" value="#{detalleFacturaController.selected.factura}" title="#{bundle.EditDetalleFacturaTitle_factura}" required="true" requiredMessage="#{bundle.EditDetalleFacturaRequiredMessage_factura}">
+                             <f:selectItems value="#{facturaController.itemsAvailableSelectOne}"/>
+                   </h:selectOneMenu>
+                     <h:outputLabel value="#{bundle.CreateDetalleFacturaLabel_plato}" for="plato" />
+                    <h:inputText id="plato" value="#{detalleFacturaController.selected.plato}" title="#{bundle.CreateDetalleFacturaTitle_plato}" required="true" requiredMessage="#{bundle.CreateDetalleFacturaRequiredMessage_plato}"/>
+                    <h:outputLabel value="#{bundle.CreateDetalleFacturaLabel_importe}" for="importe" />
+                    <h:inputText id="importe" value="#{detalleFacturaController.selected.importe}" title="#{bundle.CreateDetalleFacturaTitle_importe}" required="true" requiredMessage="#{bundle.CreateDetalleFacturaRequiredMessage_importe}"/>
+                    <h:outputLabel value="#{bundle.CreateDetalleFacturaLabel_cocinero}" for="cocinero" />
+                    <h:selectOneMenu id="cocinero" value="#{detalleFacturaController.selected.cocinero}" title="#{bundle.CreateDetalleFacturaTitle_cocinero}" >
+                        <f:selectItems value="#{cocineroController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                  
+                  <br />
+                  <h:commandLink action="#{detalleFacturaController.createComplete}" value="#{bundle.CreateDetalleFacturaSaveLink}" />
+                <br />
+                 </h:panelGrid>
+                
+                <p:dataTable value="#{detalleFacturaController.detalleFactura}" var="item">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetalleFacturaTitle_plato}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.plato}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetalleFacturaTitle_importe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetalleFacturaTitle_cocinero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cocinero}"/>
+                        </h:column>
+                   
+                    </p:dataTable>
+                
+                <br />
+                <br />
+                <h:commandLink action="#{facturaController.prepareList}" value="#{bundle.CreateFacturaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateFacturaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

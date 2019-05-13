@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ListCamareroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCamareroEmpty}" rendered="#{camareroController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{camareroController.items.rowCount > 0}">
+                    <h:outputText value="#{camareroController.pagination.pageFirstItem + 1}..#{camareroController.pagination.pageLastItem + 1}/#{camareroController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{camareroController.previous}" value="#{bundle.Previous} #{camareroController.pagination.pageSize}" rendered="#{camareroController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{camareroController.next}" value="#{bundle.Next} #{camareroController.pagination.pageSize}" rendered="#{camareroController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{camareroController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCamareroTitle_idCamarero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCamarero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCamareroTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCamareroTitle_apellido1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellido1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCamareroTitle_apellido2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellido2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{camareroController.prepareView}" value="#{bundle.ListCamareroViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{camareroController.prepareEdit}" value="#{bundle.ListCamareroEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{camareroController.destroy}" value="#{bundle.ListCamareroDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{camareroController.prepareCreate}" value="#{bundle.ListCamareroCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCamareroIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

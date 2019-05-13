@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+      </h:head>
+
+    <h:body>
+          <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="120" resizable="true" closable="true" collapsible="true">
+                    	<h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <table border="0">
+            <tr>
+                <td>           <h:graphicImage url="/resources/images/logo.png" width="200" height="100" alt="logo"/>  
+                    </td>
+                <td> <h1 align="center">Restaurente La Mejor Cocina</h1>
+                    </td>
+            </tr>
+        </table>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
+                    Realizado por Maria Teresa Da Costa
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="200" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Menu">
+                            <p:menuitem action="#{facturaController.prepareCreate}" value="Regisrar Factura" url="/jsf/factura/FacturaDetalle.xhtml" />
+                            <p:menuitem value="Administrar Clientes" url="/jsf/cliente/List.xhtml" />
+                            <p:menuitem value="Administrar Camareros" url="/jsf/camarero/List.xhtml" />
+                            <p:menuitem value="Administrar Cocineros" url="/jsf/cocinero/List.xhtml" />
+                            <p:menuitem value="Administrar Mesas" url="/jsf/mesa/List.xhtml" />
+                            <p:menuitem value="Administrar Facturas" url="/jsf/factura/List.xhtml" />
+                             <p:menuitem value="Administrar Detalles" url="/jsf/detalleFactura/List.xhtml" />
+                           
+                        </p:submenu>
+                     </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                      <div id="top" class="top">
+                        <ui:insert name="top"></ui:insert>
+                    </div>
+                     <div id="content" class="center_content">
+                        <ui:insert name="content"></ui:insert>
+                    </div>
+                </p:layoutUnit>
+
+            </p:layout>
+  
+    </h:body>
+
+</html>

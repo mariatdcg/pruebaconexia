@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/Template.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ViewCamareroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCamareroLabel_idCamarero}"/>
+                    <h:outputText value="#{camareroController.selected.idCamarero}" title="#{bundle.ViewCamareroTitle_idCamarero}"/>
+                    <h:outputText value="#{bundle.ViewCamareroLabel_nombre}"/>
+                    <h:outputText value="#{camareroController.selected.nombre}" title="#{bundle.ViewCamareroTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewCamareroLabel_apellido1}"/>
+                    <h:outputText value="#{camareroController.selected.apellido1}" title="#{bundle.ViewCamareroTitle_apellido1}"/>
+                    <h:outputText value="#{bundle.ViewCamareroLabel_apellido2}"/>
+                    <h:outputText value="#{camareroController.selected.apellido2}" title="#{bundle.ViewCamareroTitle_apellido2}"/>
+                </h:panelGrid>
+                <br />
+                   <table>
+                <tr>
+                    <td>
+                        <h:commandLink action="#{camareroController.destroyAndView}" value="#{bundle.ViewCamareroDestroyLink}"/>
+                    </td>
+                    <td>
+                       <h:link outcome="Edit" value="#{bundle.ViewCamareroEditLink}"/>
+                    </td>
+                    <td>
+                   <h:commandLink action="#{camareroController.prepareCreate}" value="#{bundle.ViewCamareroCreateLink}" />
+                    </td>
+                </tr>
+                  </table>
+               
+                
+                <br />
+                <h:commandLink action="#{camareroController.prepareList}" value="#{bundle.ViewCamareroShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCamareroIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
